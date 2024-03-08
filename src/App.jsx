@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Registro from "./components/Registro.jsx"
+import Alert from "./components/Alert.jsx"
 import "./index.css"
 
 function App() {

@@ -8,7 +8,24 @@
     height: 100vh;
     background-color: bisque;
 }
+
 .container {
     background-color: white;
     border-radius: 15px;
+    box-shadow: 15px 15px 15px rgba(189, 169, 144, 0.384);
+}
+
+.fa-brands{
+    font-size: 40px;
+}
+
+.rounded-circle{
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.rounded-circle:hover{
+    background-color: rgba(148, 148, 148, 0.164);
 }
