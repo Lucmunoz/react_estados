@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -11,11 +10,12 @@ const Formulario = ({ obtenerAlertRegistro }) => {
     const [confirmPassword, setConfirmPassword] = useState("");
 
     const validarDatos = (e) => {
+
         e.preventDefault();
 
         /*  En primer lugar, la validación considera revisar si es que al momento de presionar el boton "Registarse" hay algun campo de
-        entrada de texto vacío. Si esto ocurre, se define un estado para la alarma que considera definir el valor de la propiedad error a true
-        para que esta sea renderizada en el componente App.jsx. Si este valor es Falso, la alerta no se renderiza. */
+            entrada de texto vacío. Si esto ocurre, se define un estado para la alarma que considera definir el valor de la propiedad error a true
+            para que esta sea renderizada en el componente App.jsx. Si este valor es Falso, la alerta no se renderiza. */
 
         if (nombre === "" || email === "" || password === "" || confirmPassword === "") {
 
@@ -30,49 +30,52 @@ const Formulario = ({ obtenerAlertRegistro }) => {
         else {
 
             /*  Al utilizar formularios de bootstrap y definir un campo de entrada de texto de tipo email, el navegador entiende que el valor de entrada
-            esperado debe seguir las reglas del formato de correo electrónico. A partir de esto, no es necesario hacer una validación ya que está se
-            realizará de forma automática. 
-            
-            Si se llegara a necesitar realizar esta validación, se revisa que el valor de entrada del campo de texto tenga los siguientes elementos:
-            1.- Empezar por el identificador o nombre del usuario ^\w+([.-_+]?\w+)*
-            2.- Seguido por el símbolo de la arroba @
-            3.- Por último, el nombre del dominio del correo \w+([.-]?\w+)*(\.\w{2,10})+$
-            
-            lo anterior considera la siguiente nomenclatura:
-            
-            Meta carácter w: Que abarca los caracteres desde la a-z, A-Z y 0-9.
-            Cuantificador +: Que indica que debe haber 1 o más ocurrencias del patrón definido
-            Cuantificador ?: Que indica que puede haber 0 o 1 ocurrencia del patrón definido.
-            Cuantificador *: Que indica que debe haber 0 o más ocurrencias del patrón definido
-            Cuantificador {n,m}: Que indica que el patrón se puede repetir entre un mínimo de n veces hasta un máximo de m
-            Meta carácter ^: Indica que el texto debe empezar por el patrón definido
-            Meta carácter $: Indica que el texto debe finalizar por el patrón definido
-            Grupo []: El par de corchetes indican que el texto puede tener algunos de los caracteres que se encuentren en dicho grupo.
-            
-            así, el formato de un correo es:
-            /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ 
-            
-            luego, podríamos validar haciendo lo siguiente:
-            
-            formatoMailValido = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-            
-            if( formatoMailValido.test(valorMailIngresado) ){
-                alert('Email valido');
-                return true;
-            }else{
-                alert('Email invalido');
-                return false;
-            }
-            
-            el metodo test busca coincidencia entre dos cadenas y devuelve true si la encuentra.
-            
-            Lo que si validaremos, es que ambas contraseñas sean las mismas y para ello, simplemente compararemos el valor del estado de
-            passWord y confirmPassword*/
+                esperado debe seguir las reglas del formato de correo electrónico. A partir de esto, no es necesario hacer una validación ya que está se
+                realizará de forma automática. 
+                
+                Si se llegara a necesitar realizar esta validación, se revisa que el valor de entrada del campo de texto tenga los siguientes elementos:
+                1.- Empezar por el identificador o nombre del usuario ^\w+([.-_+]?\w+)*
+                2.- Seguido por el símbolo de la arroba @
+                3.- Por último, el nombre del dominio del correo \w+([.-]?\w+)*(\.\w{2,10})+$
+                
+                lo anterior considera la siguiente nomenclatura:
+                
+                Meta carácter w: Que abarca los caracteres desde la a-z, A-Z y 0-9.
+                Cuantificador +: Que indica que debe haber 1 o más ocurrencias del patrón definido
+                Cuantificador ?: Que indica que puede haber 0 o 1 ocurrencia del patrón definido.
+                Cuantificador *: Que indica que debe haber 0 o más ocurrencias del patrón definido
+                Cuantificador {n,m}: Que indica que el patrón se puede repetir entre un mínimo de n veces hasta un máximo de m
+                Meta carácter ^: Indica que el texto debe empezar por el patrón definido
+                Meta carácter $: Indica que el texto debe finalizar por el patrón definido
+                Grupo []: El par de corchetes indican que el texto puede tener algunos de los caracteres que se encuentren en dicho grupo.
+                
+                así, el formato de un correo es:
+                /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ 
+                
+                luego, podríamos validar haciendo lo siguiente:
+                
+                formatoMailValido = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+                
+                if( formatoMailValido.test(valorMailIngresado) ){
+                    alert('Email valido');
+                    return true;
+                }else{
+                    alert('Email invalido');
+                    return false;
+                }
+                
+                el metodo test busca coincidencia entre dos cadenas y devuelve true si la encuentra.
+                
+                Lo que si validaremos, es que ambas contraseñas sean las mismas y para ello, simplemente compararemos el valor del estado de
+                passWord y confirmPassword*/
 
             if (password != confirmPassword) {
 
-                /*Si las contraseñas son distintas, se define el siguiente estado para la alerta. Recordar que si la propiedad error es true,
-                la alerta será renderizada en el componente App.jsx.*/
+                /*  Si las contraseñas son distintas, se define el siguiente estado para la alerta. Recordar que si la propiedad error es true,
+                    la alerta será renderizada en el componente App.jsx.
+    
+                    El desafío propone cambiar el color de la alerta. Esto lo conseguimos, en este caso, definiendo el valor de la propiedad color
+                    como "danger". Acorde a la documentación de bootstrap  */
 
                 obtenerAlertRegistro({
                     error: true,
@@ -83,14 +86,13 @@ const Formulario = ({ obtenerAlertRegistro }) => {
             }
             else {
 
-                /*Si todos los datos ingresados estan ok, defino el siguiente estado para la alerta. */
-                //ReactDOM.findDOMNode(this.messageForm).reset();
-
+                /*  Si todos los datos ingresados estan ok, defino el siguiente estado para la alerta. 
+                    ReactDOM.findDOMNode(this.messageForm).reset(); */
 
                 obtenerAlertRegistro({
                     error: true,
                     mensaje: "Registro creado exitosamente",
-                    color: "success",
+                    color: "info",
                 });
 
                 //formRef.current.reset();
@@ -102,9 +104,25 @@ const Formulario = ({ obtenerAlertRegistro }) => {
                 e.target.reset();
                 return;
             }
-
         }
     }
+
+    /* El componente retornará un formulario cuyo formato está determinado por reactBootrap. Es por ello que al principio se importan los siguientes
+        componentes:
+
+        import Button from 'react-bootstrap/Button';
+        import Form from 'react-bootstrap/Form';
+
+        al importar el Button, podemos añadir funcionalidad al elemento boton asociando el evento onSubmit.
+
+        Para los distintos campos de entrada de texto del formulario se asocia el valor correspondiente del estado y una función encargada de su
+        actualización cada vez que se produzca algun cambio (evento onChange). Se utiliza el metodo trim para eliminar los espacios al inicio y fin
+        de la cadena de caracteres ingresada por el usuario.
+
+        Al momento en que el usuario presiona el boton Registar, se llama a la función "validarDatos" encargada de realizar las validaciones según
+        se exige en el desafío. Esta función esta linkeada al evento onSubmit para lo cual el boton debe ser del tipo "submit". En la función validarDatos
+        se revisará que se cumplan condiciones y emitir alertas visuales al usuario para indicar la ocurrencia de algun error o sie l registro fue 
+        exitoso.*/
 
 
     return (

@@ -1,3 +1,6 @@
+/*  Según exige el desafío, el componente SocialButton recibe como props el nombre o la sintaxis del icono a renderizar según el formato
+    que establece FontAwesome. En este caso y para replicar la maqueta que presenta desafío, se reciben valores para 3 iconos los cuales se 
+    renderizan como se muestra a continuación.*/
 
 const SocialButton = (props) => {
     return (
@@ -11,6 +14,7 @@ const SocialButton = (props) => {
             <div className="d-flex justify-content-center align-items-center rounded-circle">
                 <a href="https://www.linkedin.com/school/desafiolatam/"><i className={`fa-brands ${props.linkedin}`}></i></a>
             </div>
+            
         </>
     )
 }
