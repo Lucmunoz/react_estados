@@ -1,31 +1,53 @@
 * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.main{   
-    height: 100vh;
-    background-color: bisque;
+body{
+  background-color: #daccba;
 }
 
+.main{
+padding-top: 100px;
+}
+
+.alert{
+  border-radius: 15px;
+}
 .container {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 15px 15px 15px rgba(189, 169, 144, 0.384);
+  height: 100%;
+  background-color: #f0eae7;
+  border-radius: 15px;
+  box-shadow: 15px 15px 15px #9f8c862a;
 }
 
-.fa-brands{
-    font-size: 40px;
+.fa-brands {
+  font-size: 40px;
+  color: #534947;
 }
 
-.rounded-circle{
-    width: 75px;
-    height: 75px;
-    cursor: pointer;
-    transition: 0.1s;
+.rounded-circle {
+  border: 1px solid #7d6e6a63;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  transition: 0.1s;
 }
 
-.rounded-circle:hover{
-    background-color: rgba(148, 148, 148, 0.164);
+.rounded-circle:hover {
+  background-color: #9f8c86f7;
+}
+
+.rounded-circle:hover .fa-brands {
+color: white;
+}
+
+.boton {
+  background-color: #9f8c86f7;
+  transition: 0.1s;
+}
+.boton:hover {
+  background-color: #7d6e6a;
+  color: white;
 }
